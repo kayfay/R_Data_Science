@@ -6,6 +6,8 @@
 web.data <- url('https://raw.github.com/vincentarelbundock/Rdatasets/master/csv/datasets/USJudgeRatings.csv')
 lr  <- read.csv(web.data, header=T)
 
+#### Cleaning the dataset ####
+
 # Loop over names and remove first initials
 a <- c()
 for (i in 1:nrow(lr)) {
@@ -29,11 +31,12 @@ lr$TOTAL <- addmargins(as.matrix(lr.x), 2)[,13]
 lr.b <- lr$TOTAL[order(lr$TOTAL)] # order bars
 n.b <- attributes(lr)$row.names[order(lr$TOTAL)] # order bar names
 
+#### The chart code ####
 
 # Create a barplot with the standard R package
 barplot(lr.b, names.arg=n.b, horiz=T, space=1.5,
         main="Total of ratings of Judges",
-        cex.names=.7, las=2)
+        ylab = "", cex.names=.7, las=2)
 
 # A stacked version of the bar chart
 # lr.M <-  t(as.matrix(lr[-14]))
@@ -43,7 +46,7 @@ library(lattice)
 # lattice sorts by alphabet in names so we create a factorized scale with reorder
 n.c <- reorder(n.b, lr.b)
 barchart(n.c ~ lr.b, xlim=c(0, max(lr.b)),
-         main = "Total of ratings of judges",)
+         ylab = "", main = "Total of ratings of judges",)
 
 library(ggplot2)
 ggplot(lr$TOTALS, aes(n.c, lr.b)) +

@@ -6,7 +6,7 @@
 web.data <- url('https://raw.github.com/vincentarelbundock/Rdatasets/master/csv/datasets/USJudgeRatings.csv')
 lr  <- read.csv(web.data, header=T)
 
-#### Cleaning the dataset ####
+#### Cleaning and transforming the dataset ####
 
 # Loop over names and remove first initials
 a <- c()

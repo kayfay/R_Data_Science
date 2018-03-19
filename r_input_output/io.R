@@ -4,6 +4,7 @@ library(plyr)
 
 # Read in the file
 # x <- read.table(file.choose(), header=T, sep=",")
+# x <- read.table(commandArgs(trailingOnly=T), header=T, sep=",")
 x <- read.table(file="dataset.txt", header=T, sep=",") # dataset in current directory
 
 # Split, Add, and Combine with a Grades column
@@ -13,7 +14,7 @@ x <- read.table(file="dataset.txt", header=T, sep=",") # dataset in current dire
 write.table(y, "Sorted_Average.csv", sep=",")
 
 # Subset containing i and I
-sub.x <- subset(x, grep[Ii], x$Name)
+sub.x <- subset(x, grepl("[Ii]", x$Name))
 
 # write the file out in csv format
 write.table(sub.x, "Data_Subset.csv", sep=",")

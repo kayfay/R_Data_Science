@@ -7,14 +7,14 @@ library("ggplot2")
 hd <- read.csv("http://datasets.flowingdata.com/hot-dog-contest-winners.csv")
 
 # R base bar graph of hotdog dataset
-colors <- ifelse(hotdogs$New.record == 1, "darkred", "grey")
-barplot(hd$Dogs.eaten, names.arg == hd$Year, col=colors, border=NA,
+colors <- ifelse(hd$New.record == 1, "darkred", "grey")
+barplot(hd$Dogs.eaten, names.arg = hd$Year, col=colors, border=NA,
         main = "Nathan's Hot Dog Eating Contest Results, 1980 - 2010",
-        xlab = "Year"), ylab = "Hot dogs and buns (HDBs) eaten")
+        xlab = "Year", ylab = "Hot dogs and buns (HDBs) eaten")
 
 # Ggplot2 graph of hotdog datase
 ggplot(hd) +
-    geom <- bar(aes(x = Year, y = Dogs.eaten, fill = factor(New.record)),
+    geom_bar(aes(x = Year, y = Dogs.eaten, fill = factor(New.record)),
                 stat="identity") +
     labs(title = "Nathan's Hot Dog Eating Contest Results, 1980 - 2010",
          fill = "New Record") +

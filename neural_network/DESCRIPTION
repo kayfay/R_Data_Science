@@ -13,6 +13,5 @@ Description:
         X corresponding to a y vector.
 Depends: R (>= 3.4.2)
 License: MIT
-URL:
+URL: https://github.com/kayfay/R_programming/tree/master/neural_network
 LazyData: true
-RoxygenNote: 6.0.1.9000

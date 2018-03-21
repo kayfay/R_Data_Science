@@ -1,0 +1,18 @@
+Package: Tools
+Title: A simple neural network.
+Version: 0.1
+Author@R: "Allen Tools <mr@allen.tools> [aut, cre]"
+Description:
+    Objectives: To examine the inner-workings of a deep neural network,
+        to design DNN algorithm that can perform pattern recognition and learning tasks.
+    Data source: Data sources can be any event, variables, i.e. an X matrix,
+        and outcome, class, i.e. y vector, based data set.
+    Type of statistical framework: The frame work will be a deep neural network
+        based on computational mathematics.
+    Data format: The parameters passed can be any row by column matrix of
+        X corresponding to a y vector.
+Depends: R (>= 3.4.2)
+License: MIT
+URL:
+LazyData: true
+

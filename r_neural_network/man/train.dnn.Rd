@@ -40,11 +40,15 @@ This function allows you to train a NN.
 train.dnn(x=1:2, y=1,trainingdata=d.train,testdata=d.test,hidden=6,maxit=2000,display=100)
 
 example with DNN package
-
-library(DNN)
 samp <- c(sample(1:50, 25), sample(51:100, 25), sample(101:150, 25))
-iris.model <- train.dnn(x=1:4,y=5, traindata=iris[samp,],testdata=iris[-samp,],hidden=10,maxit=2000,display=50)
+iris.model <- train.dnn(x=1:4,y=5, traindata=iris[samp,],
+                     testdata=iris[-samp,],hidden=10,
+                     maxit=2000,display=50)
+
 labels.dnn <- predict.dnn(iris.model, iris[-samp, -5])
+
+# Display a confusion matrix of the dataset
+table(iris[-samp, 5], labels.dnn)
 }
 \keyword{DNN,}
 \keyword{NN}

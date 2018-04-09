@@ -9,17 +9,26 @@
 #'
 #' example with DNN package
 #'
-#' library(DNN)
 #' samp <- c(sample(1:50, 25), sample(51:100, 25), sample(101:150, 25))
-#' iris.model <- train.dnn(x=1:4,y=5, traindata=iris[samp,],testdata=iris[-samp,],hidden=10,maxit=2000,display=50)
+#'
+#' iris.model <- train.dnn(x=1:4,y=5, traindata=iris[samp,],
+#'                      testdata=iris[-samp,],hidden=10,
+#'                      maxit=2000,display=50)
+#'
 #' labels.dnn <- predict.dnn(iris.model, iris[-samp, -5])
+#'
+#' # Display a confusion matrix of the dataset
+#' table(iris[-samp, 5], labels.dnn)
+
 predict.dnn <- function(model, data = X.test) {
     new.data <- data.matrix(data)
 
     # input layer
     hidden.layer <- sweep(new.data %*% model$W1, 2, model$b1, '+')
+
     # hidden layer
     hidden.layer <- pmax(hidden.layer, 0)
+
     # output layer
     score <- sweep(hidden.layer %*% model$W2, 2, model$b2, '+')
 
@@ -28,5 +37,6 @@ predict.dnn <- function(model, data = X.test) {
     probs <- sweep(score.exp, 1, rowSums(score.exp), '/')
 
     labels.predicted <- max.col(probs)
+
     return(labels.predicted)
 }

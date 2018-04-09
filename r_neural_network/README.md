@@ -2,7 +2,7 @@
 
 
 ## Overview
-I've written a neural network in Octave as a part of the stanford machine learnign course and decided to do this simple implementation of a deep neural network in R.
+I've written a neural network in Octave as a part of the stanford machine learning course and decided to do this simple implementation of a deep neural network in R.
 
 ### Installation
 To install this package directly into R issue the following commands
@@ -10,18 +10,19 @@ To install this package directly into R issue the following commands
 install.packages("devtools")
 # library(devtools)
 devtools::install_github("kayfay/R_programming/r_neural_network")
-
-# import the package
-library(DNN)
 ```
-If you have trouble with the package Download a zip of the github and load it from directory
+If you have trouble with the package Download a zip of the github and load it from the directory
 ```
 # or manuall load the package after downloading it from github
 load_all('/directory/to/package/')
 ```
+Import the package
+```
+library(DNN)
+```
+
 ### Usage
-Using example on train.dnn will provide example usage
-using the iris dataset available in the R base package
+Using example on train.dnn or predict.dnn in R will provide example usage using the iris dataset available in the R base package
 ```
 example(train.dnn)
 ```

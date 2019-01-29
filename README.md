@@ -1,5 +1,4 @@
 # R_Data_Science
-http://blog.allen.tools/
 
 The R scripts labeled r_ in this repo are linked to from the blog posts on my site and the date entries should also correspond.
 

@@ -1,0 +1,3 @@
+
+https://datascienceplus.com/time-series-analysis-in-r-part-1-the-time-series-object/
+
